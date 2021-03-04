@@ -1,1 +1,3 @@
 # projekt-munka
+
+Meg kell csinálni az oldalt...
