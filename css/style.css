@@ -1,0 +1,28 @@
+header nav div{
+    width: 25%;
+    float: left;
+    background-color: red;
+
+}
+a{
+    text-decoration: none;
+}
+header img{
+    width: 80%;
+    height: 200px;
+}
+html{
+    background-image: url("../img/filmszalag.png");
+}
+td:nth-child(3),th:nth-child(3){
+    width: 1000px;
+}
+table{
+    border: 2px solid black;
+}
+body{
+    width: 80%;
+    margin: 0 auto;
+    background-color: hsl(50, 44%, 57%);
+   height: 1500px;
+}
