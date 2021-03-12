@@ -2,7 +2,11 @@ header nav div{
     width: 25%;
     float: left;
     background-color: #000000;
-
+    text-align: center;
+    padding: 20px 0;
+    font-size: 20px;
+    box-sizing: border-box;
+    border: 5px solid black;
 }
 a{
     text-decoration: none;
@@ -14,34 +18,92 @@ a:hover,header nav div:hover{
     color: #000000;
 }
 header img{
-    width: 20%;
-    height: 20%;
+    width: 100%;
+    height: 100px;
 }
-html{
-    background-image: url("../img/filmszalag.png");
-    background-position: center;
-    background-repeat: repeat;
+html {
+    background-image: url("../img/filmszalag.png"), url("../img/filmszalag.png");
+    background-position: right, left;
+    background-repeat: repeat-y;
     background-attachment: local;
 }
-td:nth-child(3),td:nth-child(3){
-    width: 1500px;
+td:nth-child(2),th:nth-child(2){
+    width: 50%;
+    vertical-align: top;
+}
+td:nth-child(3),th:nth-child(3){
+    width: 20%;
+    vertical-align: top;
 }
 
+
+
+td:nth-child(1){
+    width: 30%;
+    height: 200px;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+
+table img{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+
+th, td{
+    text-align: left;
+    border: 2px solid black;
+    padding:5px;
+}
 
 
 table{
-    border: 2px solid #000000;
+
     border-top: none;
+    border-collapse: collapse;
+    width: 100%;
+}
+td:hover{
     background: #d4c011;
 }
+th{
+    border: none;
+}
+
 table:hover{
-    background: #d48d11;
+
     transition: z-index 3s;
 }
 
 body{
     width: 80%;
     margin: 0 auto;
-    background-color: hsl(24, 100%, 58%);
-    height: 1500px;
+    background-image: linear-gradient(#e27a26, #ca7c0e, #8c4e0c);
+    height: 100%;
+    box-shadow: 10px 100px 200px black;
+    box-sizing: border-box;
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+h2{
+    box-sizing: border-box;
+    padding: 70px 0 0 5px;
+
+}
+.cim{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+hr{
+    border-top: 3px solid black;
+
+}
+.elso{
+    border: 0;
+    background-color: inherit;
 }
