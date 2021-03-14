@@ -1,5 +1,5 @@
 header nav div{
-    width: 25%;
+    width: 20%;
     float: left;
     background-color: #000000;
     text-align: center;
@@ -12,21 +12,28 @@ a{
     text-decoration: none;
     color: white;
 }
+                                                        @media only screen and (max-width:525px) {
+                                                            a {
+                                                                color: red;                              /*csak color helyett a szöveg méretét kéne csökkenteni*/
+                                                            }
+                                                        }
 
 a:hover,header nav div:hover{
-    background-color: #d4c011;
+    background-color: #f5c518;
     color: #000000;
 }
 header img{
     width: 100%;
     height: 100px;
 }
+
 html {
     background-image: url("../img/filmszalag.png"), url("../img/filmszalag.png");
     background-position: right, left;
     background-repeat: repeat-y;
     background-attachment: local;
 }
+
 td:nth-child(2),th:nth-child(2){
     width: 50%;
     vertical-align: top;
@@ -45,14 +52,35 @@ td:nth-child(1){
     padding: 0;
     margin: 0;
 }
+@media only screen and (max-width:995px) {
+    td:nth-child(1) {
+        width: 40%;
+    }
+}
+@media only screen and (max-width:700px) {
+    td:nth-child(1) {
+        width: 60%;
+    }
+}
+@media only screen and (max-width:600px) {
+    td:nth-child(1) {
+        width: 100%;
+    }
+}
+@media only screen and (max-width:525px) {
+    table td img {
+        width: 100%;
+        height: 70%;
+    }
+}
 
 
 table img{
     width: 100%;
     height: 100%;
     display: block;
+                                                                        transition: height 1s, width 1s, z-index 1s;  /*ez se szeretne működni*/
 }
-
 
 th, td{
     text-align: left;
@@ -67,17 +95,13 @@ table{
     border-collapse: collapse;
     width: 100%;
 }
-td:hover{
-    background: #d4c011;
-}
+/*td:hover{*/
+/*    background: #f5c518;*/
+/*}*/
 th{
     border: none;
 }
 
-table:hover{
-
-    transition: z-index 3s;
-}
 
 body{
     width: 80%;
@@ -107,3 +131,15 @@ hr{
     border: 0;
     background-color: inherit;
 }
+.checked {
+    color: #e2cd01;
+}
+
+
+
+
+                                                                    .current{
+                                                                        background-color: red;         /* a pirosat csak a próba miatt választottam, nem a szöveget kéne hanem a hátterét*/
+                                                                        color: red;
+                                                                    }
+/*     megjelöltem minden oldalt így:       <a href="filmek.html" class="current"><div>Filmek </div></a>    hogy mikor azon az oldalon vagy jelölje a headerbe    */
