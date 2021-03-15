@@ -134,7 +134,11 @@ hr{
 .checked {
     color: #e2cd01;
 }
-
+                                                                  @media only screen and (max-width:700px) {  /*nem akar összemenni a nyomorlutja*/
+                                                                                                                             video {
+                                                                                                                                width: 200px;
+                                                                                                                            }
+                                                                                                                        }
 
 
 
