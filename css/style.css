@@ -8,23 +8,47 @@ header nav div{
     box-sizing: border-box;
     border: 5px solid black;
 }
+
+mark{
+
+    background-color: red;
+}
+
+
+h1{
+    text-align: center;
+    text-shadow: black 5px 5px 10px;
+}
+
 a{
     text-decoration: none;
     color: white;
 }
-                                                        @media only screen and (max-width:525px) {
-                                                            a {
-                                                                color: red;                              /*csak color helyett a szöveg méretét kéne csökkenteni*/
-                                                            }
-                                                        }
 
-a:hover,header nav div:hover{
+@media print {
+    p { font-size: 12pt; }
+    video, audio { display: none; }
+    h1, h2, h3 { page-break-after: avoid; }
+}
+@page {
+    margin: 1cm;
+}
+
+@media only screen and (max-width:525px) {
+    body {
+        font-size: 12px;
+    }
+}
+
+header nav div:hover{
     background-color: #f5c518;
     color: #000000;
 }
 header img{
     width: 100%;
     height: 100px;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 html {
@@ -51,6 +75,7 @@ td:nth-child(1){
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    border: none;
 }
 @media only screen and (max-width:995px) {
     td:nth-child(1) {
@@ -74,12 +99,20 @@ td:nth-child(1){
     }
 }
 
-
-table img{
+table img:hover{
     width: 100%;
     height: 100%;
+
+}
+
+
+
+table img{
+    margin: 0 auto;
+    width: 90%;
+    height: 90%;
     display: block;
-                                                                        transition: height 1s, width 1s, z-index 1s;  /*ez se szeretne működni*/
+    transition: height 1s, width 1s, z-index 1s;
 }
 
 th, td{
@@ -95,9 +128,7 @@ table{
     border-collapse: collapse;
     width: 100%;
 }
-/*td:hover{*/
-/*    background: #f5c518;*/
-/*}*/
+
 th{
     border: none;
 }
@@ -109,13 +140,13 @@ body{
     background-image: linear-gradient(#e27a26, #ca7c0e, #8c4e0c);
     height: 100%;
     box-shadow: 10px 100px 200px black;
-    box-sizing: border-box;
-    border: 2px solid black;
+    border: 5px solid black;
     border-collapse: collapse;
 }
 h2{
     box-sizing: border-box;
-    padding: 70px 0 0 5px;
+    padding: 20px 0 0 5px;
+    text-decoration: underline;
 
 }
 .cim{
@@ -134,16 +165,82 @@ hr{
 .checked {
     color: #e2cd01;
 }
-                                                                  @media only screen and (max-width:700px) {  /*nem akar összemenni a nyomorlutja*/
-                                                                                                                             video {
-                                                                                                                                width: 200px;
-                                                                                                                            }
-                                                                                                                        }
+@media only screen and (max-width:700px) {
+    video {
+        width: 200px;
+    }
+}
+strong{
+    font-size: 30px;
+}
+
+#hidden{
+    border: hidden;
+    width: 65%;
+}
+#hidden td{
+    border: hidden;
+    height: 50px;
+    width: 200px;
+    vertical-align: bottom;
+    text-align: left;
+}
+#hidden td:nth-child(1){
+    width: 6%;
+    vertical-align:center;
+    padding-bottom: 10px;
+}
+#hidden td:nth-child(2){
+    width: 10%;
+}
+#hidden td:nth-child(3){
+    width: 10%;
+}
+
+#hidden td:nth-child(4){
+    width: 60%;
+}
+aside{
+    position: relative;
+    right: 5px;
+    padding: 10px;
+    text-align: center;
+    float: right;
+}
+
+#abszolut{
+    position: absolute;
+    top: 200px;
+    z-index: 1;
+}
+
+#kezdolap{
+    padding-top: 400px;
+    width: 70%;
+
+}
+#kezdolap2{
+    width: 70%;
+    text-align: justify;
+    line-height: 25px;
+    letter-spacing: 2px;
+    white-space: pre-line;
+}
 
 
+#gyorsgomb{
+    position: fixed;
+    right: 200px;
+    top: 200px;
+    z-index: 200;
+    width: 100px;
+}
 
-                                                                    .current{
-                                                                        background-color: red;         /* a pirosat csak a próba miatt választottam, nem a szöveget kéne hanem a hátterét*/
-                                                                        color: red;
-                                                                    }
-/*     megjelöltem minden oldalt így:       <a href="filmek.html" class="current"><div>Filmek </div></a>    hogy mikor azon az oldalon vagy jelölje a headerbe    */
+#dolt{
+    font-style: italic;
+}
+
+
+.current{
+    color: red;
+}
