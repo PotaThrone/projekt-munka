@@ -36,12 +36,16 @@
         <a href="filmek.html"><div>Filmek </div></a>
         <a href="sorozatok.html"><div>Sorozatok</div></a>
         <a href="jatekok.html"><div>Játékok</div></a>
-        <a href="urlapos.html" class="current"><div>Űrlapos?</div></a>
+        <a href="urlapos.html" class="current"><div>Regisztráció</div></a>
 
     </nav>
 </header>
 <main>
     <article>
+        <aside>
+            <p>Az űrlap még nem küldi el az adatokat, azon még dolgozunk!</p>
+            <img src="img/aside.jpg" title="working" alt="working" width="300" height="300" />
+        </aside>
         <section>
             <form>
                 <fieldset>
@@ -52,8 +56,9 @@
                     <label>Jelszó ismét: <input type="password" name="passwd-check" required/></label> <br/>
                     <label>Születési dátum: <input type="date" name="date-of-birth" min="1920-01-01"/></label> <br/>
                     <label>E-mail: <input type="email" name="email" required/></label> <br/>
-                    <label>Felhasználói azonosító: <input type="number" name="user-id" value="12345" disabled/></label> <br/>
+                    <label>Felhasználói azonosító: <input type="hidden" name="user-id" value="12345" /></label> <br/>
                 </fieldset>
+
 
                 <label for="education">Legmagasabb iskolai végzettség:</label>
                 <select id="education">
@@ -63,27 +68,44 @@
                     <option value="other" selected>Egyéb</option>
                 </select> <br/>
 
-                Nem:
-                <label for="op1">Férfi:</label>
-                <input type="radio" id="op1" name="sex" value="m"/>
-                <label for="op2">Nő:</label>
-                <input type="radio" id="op2" name="sex" value="f"/>
-                <label for="op3">Transzaszexuálisleszbikusantiszemitaférfi:</label>
-                <input type="radio" id="op3" name="sex" value="other" checked/> <br/>
-
-                Hobbik:
-                <label for="hobby-1">Fotózás:</label>
-                <input type="checkbox" id="hobby-1" name="hobby-1" value="photo"/>
-                <label for="hobby-2">Főzés:</label>
-                <input type="checkbox" id="hobby-2" name="hobby-2" value="cooking"/>
-                <label for="hobby-3">Sorozatnézés:</label>
-                <input type="checkbox" id="hobby-3" name="hobby-3" value="series"/> <br/>
-
+                <table id="hidden">
+                    <tr>
+                        <td>Nem:</td>
+                        <td>
+                            <label for="op1">Férfi:</label>
+                            <input type="radio" id="op1" name="sex" value="m"/>
+                        </td>
+                        <td>
+                            <label for="op2">Nő:</label>
+                            <input type="radio" id="op2" name="sex" value="f"/>
+                        </td>
+                        <td>
+                            <label for="op3">Transzaszexuálisleszbikusantiszemitaférfi:</label>
+                            <input type="radio" id="op3" name="sex" value="other" checked/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Hobbik:</td>
+                        <td>
+                            <label  for="hobby-1">Fotózás:</label>
+                            <input type="checkbox" id="hobby-1" name="hobby-1" value="photo"/>
+                        </td>
+                        <td>
+                            <label  for="hobby-2">Főzés:</label>
+                            <input type="checkbox" id="hobby-2" name="hobby-2" value="cooking"/>
+                        </td>
+                        <td>
+                            <label for="hobby-3">Sorozatnézés:</label>
+                            <input type="checkbox" id="hobby-3" name="hobby-3" value="series"/>
+                        </td>
+                    </tr>
+                </table>
                 <label for="introduction">Bemutatkozás (max. 200 karakter):</label> <br/>
                 <textarea id="introduction" name="intro" maxlength="200"></textarea> <br/>
 
                 <input type="reset" name="reset-btn" value="Adatok törlése"/>
                 <input type="submit" name="submit-btn" value="Adatok elküldése"/>
+
             </form>
         </section>
     </article>
