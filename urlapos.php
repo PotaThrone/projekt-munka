@@ -1,30 +1,6 @@
 <?php
-
-$accounts = [
-    [
-        "full-name" => "Lakatos Brendon",
-        "username" => "admin",
-        "passwd" => "Admin123",
-        "date-of-birth" => "1995-12-31",
-        "email" => "lakatosbrendon@gmail.com",
-        "education" => "elementary",
-        "sex" => "m",
-        "hobby" => ["photo", "cooking"],
-        "intro" => "szeretem a perecet"
-    ],
-
-    [
-        "full-name" => "Pista Béla",
-        "username" => "pistike",
-        "passwd" => "Alma1234",
-        "date-of-birth" => "2005-05-25",
-        "email" => "pistikevok@gmail.com",
-        "education" => "elementary",
-        "sex" => "m",
-        "hobby" => ["series"],
-        "intro" => "minecraft a kedvenc játékom"
-    ]
-];
+ session_start();
+ $accounts = loadUsers("felhasznalok.txt");
 ?>
 
 
@@ -40,7 +16,6 @@ $accounts = [
     <meta name="keywords" content="urlapok" />
     <meta name="generator" content="WebStrom" />
     <link rel="icon" href="img/icon.jpg" sizes="180x180" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <style>
         textarea{
@@ -87,8 +62,11 @@ $accounts = [
         <a href="filmek.php"><div>Filmek </div></a>
         <a href="sorozatok.php"><div>Sorozatok</div></a>
         <a href="jatekok.php"><div>Játékok</div></a>
+        <?php if (isset($_SESSION["user"])) { ?>
+        <a href="profile.php" class="current"><div>Profil</div></a>
+        <?php } else { ?>
         <a href="urlapos.php" class="current"><div>Regisztráció/Belépés</div></a>
-
+        <?php } ?>
     </nav>
 </header>
 <main>
@@ -117,6 +95,8 @@ $accounts = [
                 foreach ($accounts as $account){
                     if($user === $account["username"] && $pass === $account["passwd"]){
                         $msg = "Sikeres belépés";
+                        $_SESSION["user"] = $account;
+                        header("Location: index.php");
                         break;
                     }
                 }
@@ -203,7 +183,7 @@ $accounts = [
                 $intro = $_POST["intro"];
 
 
-                foreach ($accounts as $account){
+               foreach ($accounts as $account){
                     if($account["username"] === $user){
                         $errors[] = "A felhasználónév már foglalt!";
                     }
@@ -231,9 +211,10 @@ $accounts = [
                 }
 
                 if(count($errors) === 0){
-                    $data = loadUsers($filename);
+                    $accounts[] = ["full-name" => $fullname , "username" => $user, "passwd" => $pass, "date-of-birth" => $dob, "email" => $email,
+                        "education" => $edu, "sex" => $sex, "hobby" => $hobby, "intro" => $intro];
                     echo "Sikeres regisztráció";
-                    saveUser("felhasznalok.txt", $data);
+                    saveUser("felhasznalok.txt", $accounts);
                 }
                 else{
                     foreach ($errors as $error){
@@ -247,28 +228,37 @@ $accounts = [
 
             <?php
 
-function loadUsers($filename){
-    $felhasznalok = [];
+            function loadUsers($filename){
+                $felhasznalok = [];
 
-    $file = fopen($filename, "r");
+                $file = fopen($filename, "r");
 
-    while (($line = fgets($file)) !== false){
-        $felhasznalok[] = unserialize($line);
-    }
+                if ($file === FALSE)
+                    die("HIBA: A fájl megnyitása nem sikerült!");
 
-    fclose($file);
-    return $felhasznalok;
-}
+                while (($line = fgets($file)) !== false){
+                    $felhasznalok[] = unserialize($line);
+                }
+
+                fclose($file);
+                return $felhasznalok;
+            }
 
 
-function saveUser($filename, $data){
-    $file = fopen($filename, "a");
+            function saveUser($filename, $felhasznalok){
+                $file = fopen($filename, "w");
 
-    fwrite($file, serialize($data). "\n");
+                if ($file === FALSE)
+                    die("HIBA: A fájl megnyitása nem sikerült!");
 
-    fclose($file);
-}
-?>
+                foreach($felhasznalok as $user) {
+                    $serialized_user = serialize($user);
+                    fwrite($file, $serialized_user . "\n");
+                }
+
+                fclose($file);
+            }
+            ?>
 
         </section>
     </article>
