@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 $comments = [
     [
@@ -53,7 +54,11 @@ $comments = [
         <a href="filmek.php"><div>Filmek  </div></a>
         <a href="sorozatok.php" class="current"><div>Sorozatok</div></a>
         <a href="jatekok.php"><div>Játékok</div></a>
-        <a href="urlapos.php"><div>Regisztráció</div></a>
+        <?php if (isset($_SESSION["user"])) { ?>
+            <a href="profile.php" ><div>Profil</div></a>
+        <?php } else { ?>
+            <a href="urlapos.php" ><div>Regisztráció/Belépés</div></a>
+        <?php } ?>
     </nav>
 </header>
 <main>
