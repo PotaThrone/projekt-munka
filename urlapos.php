@@ -231,7 +231,9 @@ $accounts = [
                 }
 
                 if(count($errors) === 0){
+                    $data = loadUsers($filename);
                     echo "Sikeres regisztráció";
+                    saveUser("felhasznalok.txt", $data);
                 }
                 else{
                     foreach ($errors as $error){
@@ -243,11 +245,36 @@ $accounts = [
             }
             ?>
 
+            <?php
+
+function loadUsers($filename){
+    $felhasznalok = [];
+
+    $file = fopen($filename, "r");
+
+    while (($line = fgets($file)) !== false){
+        $felhasznalok[] = unserialize($line);
+    }
+
+    fclose($file);
+    return $felhasznalok;
+}
+
+
+function saveUser($filename, $data){
+    $file = fopen($filename, "a");
+
+    fwrite($file, serialize($data). "\n");
+
+    fclose($file);
+}
+?>
+
         </section>
     </article>
 </main>
 <?php
-    include "footer.php";
+include "footer.php";
 ?>
 
 </body>
