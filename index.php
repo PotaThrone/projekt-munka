@@ -1,3 +1,7 @@
+<?php
+session_start(); ?>
+
+
 <!DOCTYPE html>
 <html lang="hu">
 <head>
@@ -18,7 +22,11 @@
         <a href="filmek.php"><div>Filmek  </div></a>
         <a href="sorozatok.php"><div>Sorozatok</div></a>
         <a href="jatekok.php"><div>Játékok</div></a>
-        <a href="urlapos.php"><div>Regisztráció</div></a>
+        <?php if (isset($_SESSION["user"])) { ?>
+            <a href="profile.php" ><div>Profil</div></a>
+        <?php } else { ?>
+            <a href="urlapos.php" ><div>Regisztráció/Belépés</div></a>
+        <?php } ?>
     </nav>
 </header>
 <main>
