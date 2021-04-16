@@ -1,0 +1,2 @@
+a:4:{s:8:"username";s:7:"belavok";s:4:"date";s:10:"2021.04.15";s:4:"text";s:32:"Nekem nagyon tetszett az eredet!";s:6:"rating";s:2:"10";}
+a:4:{s:8:"username";s:7:"belavok";s:4:"date";s:10:"2021.04.16";s:4:"text";s:37:"Hát ez a Macskák egy szörnyű film";s:6:"rating";s:1:"0";}

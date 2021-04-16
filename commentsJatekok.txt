@@ -1,0 +1,2 @@
+a:4:{s:8:"username";s:7:"belavok";s:4:"date";s:10:"2021.04.16";s:4:"text";s:49:"Hát a LoL tényleg egy cancer játék! Ban yasuo";s:6:"rating";s:1:"2";}
+a:4:{s:8:"username";s:7:"belavok";s:4:"date";s:10:"2021.04.16";s:4:"text";s:17:"Csak a minecraft!";s:6:"rating";s:2:"10";}

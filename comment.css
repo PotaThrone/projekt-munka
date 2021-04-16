@@ -1,0 +1,24 @@
+#komment {
+    border: solid 2px black;
+    width: 90%;
+    margin: 10px auto;
+    background-color: #c6782e;
+    padding: 10px;
+}
+.datum{
+    float: right;
+    vertical-align: top;
+}
+#hidden{
+    padding-left: 40px;
+}
+textarea{
+    width: 90%;
+    height: 50px;
+    background-color: #c6782e;
+
+}
+input[type="submit"]{
+    margin: 10px 0px;
+    width: 100px;
+}
